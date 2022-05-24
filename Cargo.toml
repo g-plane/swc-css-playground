@@ -1,0 +1,18 @@
+[package]
+name = "swc-css-playground"
+version = "0.0.0"
+description = "Playground for SWC CSS."
+authors = ["Pig Fang <g-plane@hotmail.com>"]
+edition = "2021"
+license = "MIT"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "crate/lib.rs"
+
+[dependencies]
+swc_css_parser = "0.101"
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.4"
