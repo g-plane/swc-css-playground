@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
-import solidPlugin from 'vite-plugin-solid'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
 import WindiCSS from 'vite-plugin-windicss'
 
 export default defineConfig({
   plugins: [
-    solidPlugin(),
+    svelte(),
     WindiCSS({
       scan: {
-        fileExtensions: ['html', 'js', 'ts', 'jsx', 'tsx'],
+        fileExtensions: ['svelte'],
       },
     }),
   ],
