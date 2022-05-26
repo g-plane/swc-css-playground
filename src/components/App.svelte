@@ -38,6 +38,9 @@
     </div>
   </div>
   <div class="overflow-y-auto">
+    {#if !isParserReady}
+      Loading WebAssembly modules...
+    {/if}
     {#if parserResult}
       <ASTView ast={parserResult.ast} />
     {/if}
