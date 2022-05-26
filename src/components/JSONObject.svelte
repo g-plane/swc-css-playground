@@ -1,22 +1,34 @@
 <script lang="ts">
+  import type { Span } from '../types'
+  import { selectedSpan } from '../store'
   import JSONArray from './JSONArray.svelte'
 
   export let object: object & {
     type?: string
-    span?: { start: number; end: number }
+    span?: Span
   }
 
   $: properties = Object.entries(object).filter(
     ([key]) => key !== 'type' && key !== 'span'
   )
+
+  function handleTreeItemClick() {
+    const { span } = object
+    $selectedSpan = span
+      ? {
+          start: span.start - 1,
+          end: span.end - 1,
+        }
+      : null
+  }
 </script>
 
-<fluent-tree-item expanded>
+<fluent-tree-item expanded on:click|stopPropagation={handleTreeItemClick}>
   {#if 'type' in object}
     <span><b>{object.type}</b></span>
   {/if}
   {#if object.span}
-    <span class="ml-2">({object.span.start}..{object.span?.end})</span>
+    <span class="ml-2">({object.span.start}..{object.span.end})</span>
   {/if}
   {#each properties as [key, value] (key)}
     <fluent-tree-item expanded>
