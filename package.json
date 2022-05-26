@@ -11,7 +11,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fluentui/web-components": "^2.5.1"
+    "@fluentui/web-components": "^2.5.1",
+    "monaco-editor": "^0.33.0"
   },
   "devDependencies": {
     "@gplane/tsconfig": "^5.0.0",

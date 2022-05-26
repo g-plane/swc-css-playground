@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import initParser, { parse } from '../../pkg'
+  import Editor from './Editor.svelte'
   import ASTView from './ASTView.svelte'
 
   let isParserReady = false
@@ -14,5 +15,11 @@
   })
 </script>
 
-<input type="text" bind:value={code} />
-<ASTView ast={parserResult?.ast} />
+<div class="grid grid-cols-2 grid-rows-1 gap-x-3 p-3 h-90vh">
+  <Editor on:input={(event) => (code = event.detail)} />
+  <div class="overflow-y-auto">
+    {#if parserResult}
+      <ASTView ast={parserResult.ast} />
+    {/if}
+  </div>
+</div>

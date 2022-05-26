@@ -5,7 +5,5 @@
 </script>
 
 <fluent-tree-view render-collapsed-nodes>
-  {#if ast}
-    <JSONObject object={ast} />
-  {/if}
+  <JSONObject object={ast} />
 </fluent-tree-view>

@@ -1,3 +1,5 @@
+import 'virtual:windi.css'
+import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import {
   provideFluentDesignSystem,
   fluentTreeItem,
@@ -6,6 +8,11 @@ import {
 import App from './components/App.svelte'
 
 provideFluentDesignSystem().register(fluentTreeItem(), fluentTreeView())
+
+// @ts-expect-error
+self.MonacoEnvironment = {
+  getWorker: () => new cssWorker(),
+}
 
 new App({
   target: document.querySelector('#root')!,
