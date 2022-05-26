@@ -1,13 +1,14 @@
 <script lang="ts">
-  import * as monaco from 'monaco-editor'
   import { onDestroy, onMount, createEventDispatcher } from 'svelte'
 
   const dispatch = createEventDispatcher()
 
+  let isEditorReady = false
   let container: HTMLDivElement | null
 
-  onMount(() => {
+  onMount(async () => {
     if (container) {
+      const monaco = await import('monaco-editor')
       const editor = monaco.editor.create(container, {
         language: 'css',
         minimap: {
@@ -17,6 +18,7 @@
         fontSize: 15,
         tabSize: 2,
       })
+      isEditorReady = true
 
       const disposeOnDidChangeModelContentEvent =
         editor.onDidChangeModelContent(() => {
@@ -31,4 +33,13 @@
   })
 </script>
 
-<div class="border-1 h-full" bind:this={container} />
+<div class="h-full">
+  {#if !isEditorReady}
+    <div>Loading Monaco Editor...</div>
+  {/if}
+  <div
+    class="border-1 h-full"
+    class:invisible={!isEditorReady}
+    bind:this={container}
+  />
+</div>
