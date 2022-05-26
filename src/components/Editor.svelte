@@ -31,4 +31,4 @@
   })
 </script>
 
-<div class="border-1" bind:this={container} />
+<div class="border-1 h-full" bind:this={container} />

@@ -4,10 +4,15 @@ import {
   provideFluentDesignSystem,
   fluentTreeItem,
   fluentTreeView,
+  fluentSwitch,
 } from '@fluentui/web-components'
 import App from './components/App.svelte'
 
-provideFluentDesignSystem().register(fluentTreeItem(), fluentTreeView())
+provideFluentDesignSystem().register(
+  fluentTreeItem(),
+  fluentTreeView(),
+  fluentSwitch()
+)
 
 // @ts-expect-error
 self.MonacoEnvironment = {
