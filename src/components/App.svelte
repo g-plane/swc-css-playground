@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import type { Switch } from '@fluentui/web-components'
   import initParser, { parse } from '../../pkg'
+  import HeaderBar from './HeaderBar.svelte'
   import Editor from './Editor.svelte'
   import ASTView from './ASTView.svelte'
 
@@ -25,6 +26,7 @@
   }
 </script>
 
+<HeaderBar />
 <div class="grid grid-cols-2 grid-rows-1 gap-x-3 p-3 h-92vh">
   <div class="h-88vh">
     <Editor on:input={(event) => (code = event.detail)} />
