@@ -13,6 +13,9 @@
         minimap: {
           enabled: false,
         },
+        fontFamily: '"Cascadia Code", monospace',
+        fontSize: 15,
+        tabSize: 2,
       })
 
       const disposeOnDidChangeModelContentEvent =

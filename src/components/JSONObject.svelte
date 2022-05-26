@@ -10,11 +10,11 @@
 
 <fluent-tree-item expanded>
   {#if 'type' in object}
-    {object.type}
+    <span><b>{object.type}</b></span>
   {/if}
   {#each properties as [key, value] (key)}
     <fluent-tree-item expanded>
-      {key}{#if Array.isArray(value)}
+      <span>{key}</span>{#if Array.isArray(value)}
         <JSONArray array={value} />
       {:else if typeof value === 'object' && value != null}
         <svelte:self object={value} />
@@ -25,10 +25,15 @@
 </fluent-tree-item>
 
 <style>
+  span {
+    font-family: Inter, sans-serif;
+  }
+
   code {
     margin-left: 4px;
     padding: 2px 4px;
     color: #760000;
     background: #eee;
+    font-family: 'Cascadia Code', monospace;
   }
 </style>
