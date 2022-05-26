@@ -2,6 +2,8 @@
 
 Currently there's only AST viewer.
 
+[Visit playground.](https://swc-css.netlify.app/)
+
 ## License
 
 MIT License
