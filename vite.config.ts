@@ -7,7 +7,7 @@ export default defineConfig({
     svelte(),
     WindiCSS({
       scan: {
-        fileExtensions: ['svelte'],
+        fileExtensions: ['svelte', 'html'],
       },
     }),
   ],
