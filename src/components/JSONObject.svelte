@@ -1,7 +1,10 @@
 <script lang="ts">
   import JSONArray from './JSONArray.svelte'
 
-  export let object: object & { type?: string }
+  export let object: object & {
+    type?: string
+    span?: { start: number; end: number }
+  }
 
   $: properties = Object.entries(object).filter(
     ([key]) => key !== 'type' && key !== 'span'
@@ -11,6 +14,9 @@
 <fluent-tree-item expanded>
   {#if 'type' in object}
     <span><b>{object.type}</b></span>
+  {/if}
+  {#if object.span}
+    <span class="ml-2">({object.span.start}..{object.span?.end})</span>
   {/if}
   {#each properties as [key, value] (key)}
     <fluent-tree-item expanded>
