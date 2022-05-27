@@ -48,3 +48,9 @@
     {/if}
   </div>
 </div>
+
+<style>
+  label {
+    font-family: Inter, sans-serif;
+  }
+</style>
