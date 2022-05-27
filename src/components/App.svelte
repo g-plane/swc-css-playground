@@ -4,6 +4,7 @@
   import initParser, { parse } from '../../pkg'
   import HeaderBar from './HeaderBar.svelte'
   import Editor from './Editor.svelte'
+  import ErrorsList from './ErrorsList.svelte'
   import ASTView from './ASTView.svelte'
 
   let isParserReady = false
@@ -28,7 +29,7 @@
 
 <HeaderBar />
 <div class="grid grid-cols-2 grid-rows-1 gap-x-3 p-3 h-92vh">
-  <div class="h-88vh">
+  <div class="max-h-88vh flex flex-col">
     <Editor on:input={(event) => (code = event.detail)} />
     <div class="mt-2">
       <fluent-switch
@@ -38,6 +39,9 @@
         <label for="cap-switch">Allow wrong comments</label>
       </fluent-switch>
     </div>
+    {#if parserResult}
+      <ErrorsList errors={parserResult.errors} />
+    {/if}
   </div>
   <div class="overflow-y-auto">
     {#if !isParserReady}

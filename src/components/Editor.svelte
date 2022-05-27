@@ -40,6 +40,9 @@
   onMount(async () => {
     if (container) {
       monaco = await import('monaco-editor')
+      monaco.languages.css.cssDefaults.setOptions({
+        validate: false,
+      })
       editor = monaco.editor.create(container, {
         language: 'css',
         minimap: {
@@ -62,7 +65,7 @@
   })
 </script>
 
-<div class="h-full">
+<div class="h-4/5">
   {#if !isEditorReady}
     <div>Loading Monaco Editor...</div>
   {/if}
