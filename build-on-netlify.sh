@@ -1,5 +1,4 @@
 set -ex
-rustup toolchain install stable
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-wasm-pack build --target=web --release
+curl -fsSL https://deno.land/install.sh | sh
+deno task wasmbuild
 npm run build

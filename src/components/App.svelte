@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { Switch } from '@fluentui/web-components'
-  import initParser, { parse } from '../../pkg'
+  import { instantiate, parse } from '../../lib/swc_css_playground.generated'
   import HeaderBar from './HeaderBar.svelte'
   import Editor from './Editor.svelte'
   import ErrorsList from './ErrorsList.svelte'
@@ -18,7 +18,7 @@
     : null
 
   onMount(async () => {
-    await initParser()
+    await instantiate()
     isParserReady = true
   })
 
