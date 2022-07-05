@@ -12,12 +12,15 @@
   "license": "MIT",
   "dependencies": {
     "@fluentui/web-components": "^2.5.1",
+    "js-base64": "^3.7.2",
     "monaco-editor": "^0.33.0",
-    "nanostores": "^0.5.12"
+    "nanostores": "^0.5.12",
+    "pako": "^2.0.4"
   },
   "devDependencies": {
     "@gplane/tsconfig": "^5.0.0",
     "@sveltejs/vite-plugin-svelte": "1.0.0-next.44",
+    "@types/pako": "^2.0.0",
     "prettier": "^2.6.2",
     "svelte": "^3.48.0",
     "svelte-preprocess": "^4.10.6",

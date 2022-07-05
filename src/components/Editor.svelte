@@ -5,6 +5,7 @@
 
   const dispatch = createEventDispatcher()
 
+  export let initialCode = ''
   let monaco: typeof import('monaco-editor') | undefined
   let isEditorReady = false
   let container: HTMLDivElement | null
@@ -52,6 +53,7 @@
         fontSize: 15,
         tabSize: 2,
       })
+      editor.setValue(initialCode)
       isEditorReady = true
 
       editor.onDidChangeModelContent(() => {
