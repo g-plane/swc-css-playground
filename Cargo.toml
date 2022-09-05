@@ -16,8 +16,8 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 console_error_panic_hook = "0.1"
 serde = { version = "1.0", features = ["derive"] }
-swc_common = "0.26"
-swc_css_ast = "0.104"
-swc_css_parser = "0.113"
+swc_common = "0.27.13"
+swc_css_ast = "0.110.0"
+swc_css_parser = "0.119.0"
 wasm-bindgen = "0.2"
 serde-wasm-bindgen = "0.4"
