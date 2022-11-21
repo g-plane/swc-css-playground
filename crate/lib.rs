@@ -17,7 +17,12 @@ struct Error {
 }
 
 #[wasm_bindgen]
-pub fn parse(code: String, allow_wrong_line_comments: bool) -> Result<JsValue, JsError> {
+pub fn parse(
+    code: String,
+    allow_wrong_line_comments: bool,
+    css_modules: bool,
+    legacy_nesting: bool,
+) -> Result<JsValue, JsError> {
     console_error_panic_hook::set_once();
 
     let source_file = SourceFile::new(
@@ -33,6 +38,8 @@ pub fn parse(code: String, allow_wrong_line_comments: bool) -> Result<JsValue, J
         &source_file,
         ParserConfig {
             allow_wrong_line_comments,
+            css_modules,
+            legacy_nesting,
         },
         &mut errors,
     ) {

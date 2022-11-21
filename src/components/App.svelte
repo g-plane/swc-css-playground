@@ -13,6 +13,8 @@
   let code = ''
   const config = {
     allowWrongComments: true,
+    cssModules: false,
+    legacyNesting: false,
   }
 
   try {
@@ -25,7 +27,7 @@
   }
 
   $: parserResult = isParserReady
-    ? parse(code, config.allowWrongComments)
+    ? parse(code, config.allowWrongComments, config.cssModules, config.legacyNesting)
     : null
 
   onMount(async () => {
@@ -44,6 +46,14 @@
   function handleAllowWrongCommentsChange(event: Event) {
     config.allowWrongComments = (event.target as Switch).checked
   }
+
+  function handleCssModulesChange(event: Event) {
+    config.cssModules = (event.target as Switch).checked
+  }
+
+  function handleLegacyNestingChange(event: Event) {
+    config.legacyNesting = (event.target as Switch).checked
+  }
 </script>
 
 <HeaderBar />
@@ -56,6 +66,18 @@
         on:change={handleAllowWrongCommentsChange}
       >
         <label for="cap-switch">Allow wrong comments</label>
+      </fluent-switch>
+      <fluent-switch
+        checked={config.cssModules}
+        on:change={handleCssModulesChange}
+      >
+        <label for="cap-switch">Enable CSS modules</label>
+      </fluent-switch>
+      <fluent-switch
+        checked={config.legacyNesting}
+        on:change={handleLegacyNestingChange}
+      >
+        <label for="cap-switch">Allow legacy nesting</label>
       </fluent-switch>
     </div>
     {#if parserResult}
