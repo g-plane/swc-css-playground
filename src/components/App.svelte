@@ -71,7 +71,7 @@
         checked={config.cssModules}
         on:change={handleCssModulesChange}
       >
-        <label for="cap-switch">Allow css modules</label>
+        <label for="cap-switch">Enable CSS modules</label>
       </fluent-switch>
       <fluent-switch
         checked={config.legacyNesting}
