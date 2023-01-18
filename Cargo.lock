@@ -683,9 +683,9 @@ dependencies = [
 
 [[package]]
 name = "swc_css_ast"
-version = "0.127.3"
+version = "0.134.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d20ed33612bb2db15428244f9bb984234fb0b414e23a215f40194e5b190fb54f"
+checksum = "986ee78a7f8904f955370a23a8fefa5188686cf826d356f3e2c8bde9600a3920"
 dependencies = [
  "is-macro",
  "serde",
@@ -696,9 +696,9 @@ dependencies = [
 
 [[package]]
 name = "swc_css_parser"
-version = "0.136.6"
+version = "0.143.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1a3c8775ffd5db347f4edbcfd23fada847d9259a1557177c85314fe0f9750bd"
+checksum = "088d9454d24ddce2114c25be9d98ff836699d98a1aba789fd42c81d8203a1442"
 dependencies = [
  "bitflags",
  "lexical",
