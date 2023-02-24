@@ -6,7 +6,7 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   plugins: [
     svelte({
-      preprocess: sveltePreprocess(),
+      preprocess: sveltePreprocess({ postcss: false }),
     }),
     WindiCSS({
       scan: {
