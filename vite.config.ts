@@ -1,10 +1,13 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import sveltePreprocess from 'svelte-preprocess'
 import WindiCSS from 'vite-plugin-windicss'
 
 export default defineConfig({
   plugins: [
-    svelte(),
+    svelte({
+      preprocess: sveltePreprocess(),
+    }),
     WindiCSS({
       scan: {
         fileExtensions: ['svelte', 'html'],
