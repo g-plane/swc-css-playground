@@ -1,4 +1,6 @@
-import 'virtual:windi.css'
+import 'virtual:uno.css'
+import '@unocss/reset/sanitize/sanitize.css'
+import '@unocss/reset/sanitize/assets.css'
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import {
   provideFluentDesignSystem,
@@ -14,7 +16,6 @@ provideFluentDesignSystem().register(
   fluentSwitch()
 )
 
-// @ts-expect-error
 self.MonacoEnvironment = {
   getWorker: () => new cssWorker(),
 }

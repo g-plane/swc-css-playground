@@ -72,7 +72,7 @@
     <div>Loading Monaco Editor...</div>
   {/if}
   <div
-    class="border-1 h-full"
+    class="border-1 border-solid border-gray-200 h-full"
     class:invisible={!isEditorReady}
     bind:this={container}
   />

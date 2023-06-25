@@ -27,7 +27,12 @@
   }
 
   $: parserResult = isParserReady
-    ? parse(code, config.allowWrongComments, config.cssModules, config.legacyNesting)
+    ? parse(
+        code,
+        config.allowWrongComments,
+        config.cssModules,
+        config.legacyNesting
+      )
     : null
 
   onMount(async () => {
@@ -56,41 +61,43 @@
   }
 </script>
 
-<HeaderBar />
-<div class="grid grid-cols-2 grid-rows-1 gap-x-3 p-3 h-92vh">
-  <div class="max-h-88vh flex flex-col">
-    <Editor initialCode={code} on:input={(event) => (code = event.detail)} />
-    <div class="mt-2">
-      <fluent-switch
-        checked={config.allowWrongComments}
-        on:change={handleAllowWrongCommentsChange}
-      >
-        <label for="cap-switch">Allow wrong comments</label>
-      </fluent-switch>
-      <fluent-switch
-        checked={config.cssModules}
-        on:change={handleCssModulesChange}
-      >
-        <label for="cap-switch">Enable CSS modules</label>
-      </fluent-switch>
-      <fluent-switch
-        checked={config.legacyNesting}
-        on:change={handleLegacyNestingChange}
-      >
-        <label for="cap-switch">Allow legacy nesting</label>
-      </fluent-switch>
+<div class="h-100vh bg-sky-50 font-sans">
+  <HeaderBar />
+  <div class="grid grid-cols-2 grid-rows-1 gap-x-3 p-3 h-92vh">
+    <div class="max-h-88vh flex flex-col">
+      <Editor initialCode={code} on:input={(event) => (code = event.detail)} />
+      <div class="mt-2">
+        <fluent-switch
+          checked={config.allowWrongComments}
+          on:change={handleAllowWrongCommentsChange}
+        >
+          <label for="cap-switch">Allow wrong comments</label>
+        </fluent-switch>
+        <fluent-switch
+          checked={config.cssModules}
+          on:change={handleCssModulesChange}
+        >
+          <label for="cap-switch">Enable CSS modules</label>
+        </fluent-switch>
+        <fluent-switch
+          checked={config.legacyNesting}
+          on:change={handleLegacyNestingChange}
+        >
+          <label for="cap-switch">Allow legacy nesting</label>
+        </fluent-switch>
+      </div>
+      {#if parserResult}
+        <ErrorsList errors={parserResult.errors} />
+      {/if}
     </div>
-    {#if parserResult}
-      <ErrorsList errors={parserResult.errors} />
-    {/if}
-  </div>
-  <div class="overflow-y-auto">
-    {#if !isParserReady}
-      Loading WebAssembly modules...
-    {/if}
-    {#if parserResult}
-      <ASTView ast={parserResult.ast} />
-    {/if}
+    <div class="overflow-y-auto">
+      {#if !isParserReady}
+        Loading WebAssembly modules...
+      {/if}
+      {#if parserResult}
+        <ASTView ast={parserResult.ast} />
+      {/if}
+    </div>
   </div>
 </div>
 

@@ -4,7 +4,9 @@
   export let errors: Error[]
 </script>
 
-<ul class="mt-2 h-30 border-1 bg-white overflow-y-scroll">
+<ul
+  class="mt-2 h-30 border-1 border-solid border-gray-200 p-0 m-0 bg-white overflow-y-scroll list-none"
+>
   {#each errors as error}
     <li class="p-1 text-red-600 error-msg">
       {error.message} ({error.span.start}..{error.span.end})
