@@ -23,7 +23,11 @@
   }
 </script>
 
-<fluent-tree-item expanded on:click|stopPropagation={handleTreeItemClick}>
+<fluent-tree-item
+  expanded
+  role="listitem"
+  on:click|stopPropagation={handleTreeItemClick}
+>
   {#if 'type' in object}
     <span><b>{object.type}</b></span>
   {/if}

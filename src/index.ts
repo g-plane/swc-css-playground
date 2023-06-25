@@ -16,6 +16,7 @@ provideFluentDesignSystem().register(
   fluentSwitch()
 )
 
+// @ts-expect-error
 self.MonacoEnvironment = {
   getWorker: () => new cssWorker(),
 }
