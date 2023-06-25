@@ -2,6 +2,7 @@
   "extends": "@gplane/tsconfig",
   "compilerOptions": {
     "types": ["vite/client", "svelte"],
+    "moduleResolution": "bundler",
     "noEmit": true
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.svelte"]
