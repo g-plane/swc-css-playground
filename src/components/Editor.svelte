@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onDestroy, onMount, createEventDispatcher } from 'svelte'
   import type * as monaco from 'monaco-editor'
+  import { createEventDispatcher, onDestroy, onMount } from 'svelte'
   import { selectedSpan } from '../store'
 
   const dispatch = createEventDispatcher()
@@ -75,5 +75,6 @@
     class="border-1 border-solid border-gray-200 h-full"
     class:invisible={!isEditorReady}
     bind:this={container}
-  />
+  >
+  </div>
 </div>

@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Span } from '../types'
   import { selectedSpan } from '../store'
+  import type { Span } from '../types'
   import JSONArray from './JSONArray.svelte'
 
   export let object: object & {
-    type?: string
-    span?: Span
+    type?: string,
+    span?: Span,
   }
 
   $: properties = Object.entries(object).filter(
@@ -16,9 +16,9 @@
     const { span } = object
     $selectedSpan = span
       ? {
-          start: span.start - 1,
-          end: span.end - 1,
-        }
+        start: span.start - 1,
+        end: span.end - 1,
+      }
       : null
   }
 </script>
@@ -36,7 +36,8 @@
   {/if}
   {#each properties as [key, value] (key)}
     <fluent-tree-item expanded>
-      <span>{key}</span>{#if Array.isArray(value)}
+      <span>{key}</span>
+      {#if Array.isArray(value)}
         <JSONArray array={value} />
       {:else if typeof value === 'object' && value != null}
         <svelte:self object={value} />

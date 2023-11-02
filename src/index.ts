@@ -1,13 +1,13 @@
 import 'virtual:uno.css'
 import '@unocss/reset/sanitize/sanitize.css'
 import '@unocss/reset/sanitize/assets.css'
-import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import {
-  provideFluentDesignSystem,
+  fluentSwitch,
   fluentTreeItem,
   fluentTreeView,
-  fluentSwitch,
+  provideFluentDesignSystem,
 } from '@fluentui/web-components'
+import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import App from './components/App.svelte'
 
 provideFluentDesignSystem().register(

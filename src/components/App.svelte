@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import type { Switch } from '@fluentui/web-components'
-  import { inflate, deflate } from 'pako'
   import { Base64 } from 'js-base64'
+  import { deflate, inflate } from 'pako'
+  import { onMount } from 'svelte'
   import { instantiate, parse } from '../../lib/swc_css_playground.generated'
-  import HeaderBar from './HeaderBar.svelte'
+  import ASTView from './ASTView.svelte'
   import Editor from './Editor.svelte'
   import ErrorsList from './ErrorsList.svelte'
-  import ASTView from './ASTView.svelte'
+  import HeaderBar from './HeaderBar.svelte'
 
   let isParserReady = false
   let code = ''
@@ -28,11 +28,11 @@
 
   $: parserResult = isParserReady
     ? parse(
-        code,
-        config.allowWrongComments,
-        config.cssModules,
-        config.legacyNesting
-      )
+      code,
+      config.allowWrongComments,
+      config.cssModules,
+      config.legacyNesting
+    )
     : null
 
   onMount(async () => {
