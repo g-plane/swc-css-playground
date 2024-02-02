@@ -27,7 +27,7 @@
     "@unocss/extractor-svelte": "^0.53.3",
     "@unocss/preset-wind": "^0.53.3",
     "@unocss/reset": "^0.53.3",
-    "dprint": "^0.42.5",
+    "dprint": "^0.45.0",
     "svelte": "^4.0.0",
     "svelte-check": "^3.4.4",
     "svelte-preprocess": "^5.0.4",

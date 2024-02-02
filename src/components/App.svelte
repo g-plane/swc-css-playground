@@ -73,16 +73,10 @@
         >
           <label for="cap-switch">Allow wrong comments</label>
         </fluent-switch>
-        <fluent-switch
-          checked={config.cssModules}
-          on:change={handleCssModulesChange}
-        >
+        <fluent-switch checked={config.cssModules} on:change={handleCssModulesChange}>
           <label for="cap-switch">Enable CSS modules</label>
         </fluent-switch>
-        <fluent-switch
-          checked={config.legacyNesting}
-          on:change={handleLegacyNestingChange}
-        >
+        <fluent-switch checked={config.legacyNesting} on:change={handleLegacyNestingChange}>
           <label for="cap-switch">Allow legacy nesting</label>
         </fluent-switch>
       </div>
